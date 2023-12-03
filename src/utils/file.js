@@ -53,14 +53,7 @@ var initNewFile = function (day, data) {
     //   folderNumber = parseInt(folderName.replace("d", ""));
     // }
     //const data = require("./data.json");
-    var initSolver = '\
-const data = require("./data.json"); \n\
-\n\
-const main = () => {\n\
-  console.log(data);\n\
-};\n\
-\n\
-main();';
+    var initSolver = "const dataD".concat(day, " = require(\"./data.json\"); \n\nconst solvD").concat(day, " = () => {\n  console.log(dataD").concat(day, ");\n};\n\nsolvD").concat(day, "();");
     var nextFolderName = "d".concat(day);
     var nextFolder = path.join(__dirname, "..", nextFolderName);
     if (!fs.existsSync(nextFolder))

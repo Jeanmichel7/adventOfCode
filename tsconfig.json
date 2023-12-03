@@ -6,6 +6,7 @@
     "lib": ["dom", "esnext"],
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "downlevelIteration": true
   }
 }

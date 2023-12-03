@@ -105,9 +105,9 @@ const ex2 = (data) => {
 //   return result;
 // };
 
-const main = () => {
+const solverd2 = () => {
   // ex1(dataBrut);
   ex2(dataBrut);
 };
 
-main();
+solverd2();
