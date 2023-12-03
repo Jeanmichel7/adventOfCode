@@ -1,4 +1,5 @@
 const data = require("./data.json");
+// const data = require("./dataDemo.json");
 
 const solverd1_1 = () => {
   console.log(data);
@@ -34,20 +35,45 @@ const solverd1_2 = () => {
     nine: 9,
   };
 
+  const reverseTemplate = {
+    eno: 1,
+    owt: 2,
+    eerht: 3,
+    ruof: 4,
+    evif: 5,
+    xis: 6,
+    neves: 7,
+    thgie: 8,
+    enin: 9,
+  };
+
   data.map((line) => {
     const lineFormated = line.replace(
       /one|two|three|four|five|six|seven|eight|nine/gi,
       (matched) => template[matched]
     );
     console.log("lineFormated : ", lineFormated);
-
     let indexFirst = lineFormated.search(/[0-9]/);
-    const tmp = lineFormated.split("").reverse().join("");
-    let indexLast = tmp.search(/[0-9]/);
-    // console.log("first : ", line[indexFirst]);
+    console.log("first : ", lineFormated[indexFirst]);
+
+    const reverseLineFormated = line
+      .split("")
+      .reverse()
+      .join("")
+      .replace(
+        /eno|owt|eerht|ruof|evif|xis|neves|thgie|enin/gi,
+        (matched) => reverseTemplate[matched]
+      );
+    console.log("reverseLineFormated : ", reverseLineFormated);
+    let indexLast = reverseLineFormated.search(/[0-9]/);
+    console.log("last : ", reverseLineFormated[indexLast]);
+
+    // const tmp = lineFormated.split("").reverse().join("");
+    // let indexLast = tmp.search(/[0-9]/);
     // console.log("last : ", tmp[indexLast]);
 
-    let tot = +(lineFormated[indexFirst] + tmp[indexLast]);
+    let tot = +(lineFormated[indexFirst] + reverseLineFormated[indexLast]);
+    console.log("tot : ", tot);
     result += tot;
   });
 
@@ -55,4 +81,5 @@ const solverd1_2 = () => {
 };
 
 // solverd1_1();
+//55652
 solverd1_2();
